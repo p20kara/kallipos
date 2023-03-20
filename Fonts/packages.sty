@@ -1,0 +1,61 @@
+% front matter
+%\usepackage{titletoc}
+\usepackage{titling,emptypage}
+
+% fonts
+\usepackage{polyglossia}
+\setmainlanguage[variant=mono]{greek}
+\PolyglossiaSetup{greek}{indentfirst=false}
+\setotherlanguage[variant=us]{english}
+\setmainfont[Ligatures=TeX]{GFS Neohellenic}
+\setsansfont[Ligatures=TeX]{GFS Elpis}
+
+% hyphenate two languages
+\usepackage[Greek,Latin]{ucharclasses}
+\makeatletter
+\setTransitionsForLatin{\begingroup\hyphenrules{english}\endgroup}
+\makeatother
+% add hyph rules or replace compbound words with \hyp{}
+\usepackage{hyphenat}
+\hyphenation{αν-θρώ-που-υπο-λο-γι-στή}
+
+% reduce widows and orphans
+\usepackage[all]{nowidow}
+
+% default figure size fits line width
+\usepackage{graphicx}
+\usepackage{keyval}
+\setkeys{Gin}{width=\textwidth,height=0.35\textheight,keepaspectratio}
+
+% figure placement 
+\usepackage{float}
+\makeatletter
+\def\@floatplacement{\global\@topnum\c@topnumber
+   \global\@toproom \topfraction\@colht
+   \global\@botnum  \c@bottomnumber
+   \global\@botroom \bottomfraction\@colht
+   \global\@colnum  \ifodd\c@page\c@totalnumber\else\z@\fi%<<<<<<<
+   \@fpmin   \floatpagefraction\@colht}
+\makeatother
+
+% captions
+\usepackage[labelformat=empty,font={footnotesize,sf},width=\textwidth,centerlast]{caption}
+
+% lists
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\usepackage[shortlabels]{enumitem}
+\setlist{noitemsep,font=\sffamily}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage[protrusion=true,final]{microtype}
+\usepackage{hyperref}
+
+% Appendix label
+\renewcommand{\appendixtocname}{Παράρτημα}
+\renewcommand{\appendixpagename}{Παράρτημα}
+
+% Load last
+\usepackage[bookmarks]{hyperref}
